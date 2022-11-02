@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace Data.Repositorio;
 
 public class RepositorioUsuario
@@ -8,8 +10,8 @@ public class RepositorioUsuario
         this.context = context;
     }
 
-    public Usuario Obtener(string usuario)
+    public Usuario IniciarSesion(string usuario)
     {
-        return context.Usuarios.FirstOrDefault(u => u.Correo == usuario);
+        return context.Usuarios.Include(r => r.CodrolNavigation).FirstOrDefault(u => u.Correo == usuario);
     }
 }

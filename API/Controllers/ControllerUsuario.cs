@@ -1,5 +1,7 @@
 using Data;
 using Microsoft.AspNetCore.Mvc;
+using Model.View;
+using Services;
 
 namespace API.Controllers;
 
@@ -7,9 +9,19 @@ namespace API.Controllers;
 [Route("api/[controller]")]
 public class ControllerUsuario : ControllerBase
 {
+    protected readonly ServiceUsuario serviceUsuario;
+    public ControllerUsuario(ServiceUsuario servicioUsuario)
+    {
+        this.serviceUsuario = servicioUsuario;
+    }
     [HttpGet ("iniciarSesion{usuario}")]
     public IActionResult obtenerUsuario(Usuario usuario){
-        
-        return NotFound("kk");
+        Usuario user = serviceUsuario.ValidarUsuario(usuario); 
+        if(user != null)
+        {
+            ViewModelUsuario vistaModeloUsuario = new ViewModelUsuario();
+            return Ok(vistaModeloUsuario.ConvertirDesdeEntidad(user));
+        }else
+            return NotFound("Verifique los datos ingresados");
     }
 }

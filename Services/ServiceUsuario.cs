@@ -1,9 +1,34 @@
+using Data;
+using Data.Repositorio;
+using Microsoft.Extensions.Configuration;
+
 namespace Services;
 
 public class ServiceUsuario
 {
-    public ServiceUsuario()
+    private readonly RepositorioUsuario repositorioUsuario;
+    private readonly IConfiguration _config;
+
+    public ServiceUsuario(RepositorioUsuario repositorioUsuario, IConfiguration config)
     {
-        
+        this.repositorioUsuario = repositorioUsuario;
+        this._config = config;
+    }
+
+    public Usuario ValidarUsuario(Usuario usuario)
+    {
+        if(usuario.Correo != null && usuario.Contarsena != null){
+            Usuario user = repositorioUsuario.IniciarSesion(usuario.Correo);
+            if(user != null){
+                if(user.Contarsena == usuario.Contarsena)
+                {
+                    return user;
+                }else
+                    return null;
+            }else
+                return null;
+            
+        }else
+        return null;
     }
 }
