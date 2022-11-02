@@ -22,7 +22,11 @@ public class ServiceUsuario
             if(user != null){
                 if(user.Contarsena == usuario.Contarsena)
                 {
-                    return user;
+                    return new Usuario{
+                        Correo = user.Correo,
+                        Contarsena = user.Contarsena,
+                        CodrolNavigation = user.CodrolNavigation
+                    };
                 }else
                     return null;
             }else

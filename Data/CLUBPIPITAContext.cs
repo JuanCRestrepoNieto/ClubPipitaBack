@@ -30,6 +30,7 @@ namespace Data
         public virtual DbSet<Torneo> Torneos { get; set; } = null!;
         public virtual DbSet<Usuario> Usuarios { get; set; } = null!;
 
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Arbitro>(entity =>

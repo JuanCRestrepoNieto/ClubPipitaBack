@@ -15,6 +15,6 @@ namespace Data
         public string? Codrol { get; set; }
 
         public virtual Rol? CodrolNavigation { get; set; }
-        public virtual ICollection<Persona> Personas { get; set; }
+        public virtual ICollection<Persona>? Personas { get; set; }
     }
 }

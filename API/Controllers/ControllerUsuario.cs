@@ -14,7 +14,7 @@ public class ControllerUsuario : ControllerBase
     {
         this.serviceUsuario = servicioUsuario;
     }
-    [HttpGet ("iniciarSesion{usuario}")]
+    [HttpPost ("iniciarSesion")]
     public IActionResult obtenerUsuario(Usuario usuario){
         Usuario user = serviceUsuario.ValidarUsuario(usuario); 
         if(user != null)
