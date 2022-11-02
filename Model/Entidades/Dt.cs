@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DATOS
+namespace Data
 {
     public partial class Dt
     {

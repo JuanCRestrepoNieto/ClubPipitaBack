@@ -1,3 +1,4 @@
+using Data;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
@@ -6,7 +7,7 @@ namespace API.Controllers;
 [Route("api/[controller]")]
 public class ControllerUsuario : ControllerBase
 {
-    [HttpGet ("obtenerUsuario{usuario}")]
+    [HttpGet ("iniciarSesion{usuario}")]
     public IActionResult obtenerUsuario(Usuario usuario){
         
         return NotFound("kk");
