@@ -25,7 +25,7 @@ public class ServiceUsuario
                     return new Usuario{
                         Correo = user.Correo,
                         Contarsena = user.Contarsena,
-                        CodrolNavigation = user.CodrolNavigation
+                        CodRolNavigation = user.CodRolNavigation
                     };
                 }else
                     return null;

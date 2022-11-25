@@ -12,9 +12,9 @@ namespace Data
 
         public string Correo { get; set; } = null!;
         public string? Contarsena { get; set; }
-        public string? Codrol { get; set; }
+        public string? CodRol { get; set; }
 
-        public virtual Rol? CodrolNavigation { get; set; }
+        public virtual Rol? CodRolNavigation { get; set; }
         public virtual ICollection<Persona>? Personas { get; set; }
     }
 }

@@ -12,6 +12,6 @@ public class RepositorioUsuario
 
     public Usuario IniciarSesion(string usuario)
     {
-        return context.Usuarios.Include(r => r.CodrolNavigation).FirstOrDefault(u => u.Correo == usuario);
+        return context.Usuarios.Include(r => r.CodRolNavigation).FirstOrDefault(u => u.Correo == usuario);
     }
 }

@@ -15,7 +15,7 @@ public class ViewModelUsuario
         {
             Correo = usuario.Correo;
             Contarsena = usuario.Contarsena;
-            CodrolNavigation = usuario.CodrolNavigation;
+            CodrolNavigation = usuario.CodRolNavigation;
         }
         return this;
     }

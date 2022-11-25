@@ -387,7 +387,7 @@ namespace Data
                     .IsUnicode(false)
                     .HasColumnName("CORREO");
 
-                entity.Property(e => e.Codrol)
+                entity.Property(e => e.CodRol)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("CODROL");
@@ -397,9 +397,9 @@ namespace Data
                     .IsUnicode(false)
                     .HasColumnName("CONTARSENA");
 
-                entity.HasOne(d => d.CodrolNavigation)
+                entity.HasOne(d => d.CodRolNavigation)
                     .WithMany(p => p.Usuarios)
-                    .HasForeignKey(d => d.Codrol)
+                    .HasForeignKey(d => d.CodRol)
                     .HasConstraintName("FK__USUARIO__CODROL__267ABA7A");
             });
 
