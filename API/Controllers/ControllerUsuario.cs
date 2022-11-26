@@ -25,4 +25,9 @@ public class ControllerUsuario : ControllerBase
         }else
             return NotFound("Verifique los datos ingresados");
     }
+
+    [HttpPost ("registrarse")]
+    public IActionResult registrarUsuario(ViewModelRegistrarse registro){
+        return Ok();
+    }
 }

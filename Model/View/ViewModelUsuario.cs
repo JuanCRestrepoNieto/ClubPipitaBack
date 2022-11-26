@@ -20,5 +20,4 @@ public class ViewModelUsuario
         return this;
     }
 
-
 }
