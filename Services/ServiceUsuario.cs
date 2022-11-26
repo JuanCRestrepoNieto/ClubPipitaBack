@@ -15,22 +15,18 @@ public class ServiceUsuario
         this._config = config;
     }
 
-    public Usuario ValidarUsuario(Usuario usuario)
+    public Usuario ValidarUsuario(string usuario, string contrasena)
     {
-        if(usuario.Correo != null && usuario.Contarsena != null){
-            Usuario user = repositorioUsuario.IniciarSesion(usuario.Correo);
+        if(usuario != null && contrasena != null){
+            Usuario user = repositorioUsuario.IniciarSesion(usuario, contrasena);
             if(user != null){
-                if(user.Contarsena == usuario.Contarsena)
-                {
                     return new Usuario{
                         Correo = user.Correo,
                         Contarsena = user.Contarsena,
-                        CodRolNavigation = user.CodRolNavigation
+                        CodRolNavigation = user.CodRolNavigation,
                     };
-                }else
-                    return null;
             }else
-                return null;
+                    return null;
             
         }else
         return null;

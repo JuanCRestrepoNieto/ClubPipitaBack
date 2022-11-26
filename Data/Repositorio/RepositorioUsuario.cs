@@ -10,8 +10,10 @@ public class RepositorioUsuario
         this.context = context;
     }
 
-    public Usuario IniciarSesion(string usuario)
+    public Usuario IniciarSesion(string usuario, string contrasena)
     {
-        return context.Usuarios.Include(r => r.CodRolNavigation).FirstOrDefault(u => u.Correo == usuario);
+        return context.Usuarios
+                .Include(r => r.CodRolNavigation).
+                FirstOrDefault(u => u.Correo == usuario && u.Contarsena == contrasena);
     }
 }
