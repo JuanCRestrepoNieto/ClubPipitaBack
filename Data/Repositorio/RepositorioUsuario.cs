@@ -13,7 +13,6 @@ public class RepositorioUsuario
     public Usuario IniciarSesion(string usuario, string contrasena)
     {
         return context.Usuarios
-                .Include(r => r.CodRolNavigation).
-                FirstOrDefault(u => u.Correo == usuario && u.Contarsena == contrasena);
+                .FirstOrDefault(u => u.Correo == usuario && u.Contarsena == contrasena);
     }
 }
