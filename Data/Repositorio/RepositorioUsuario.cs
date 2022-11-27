@@ -16,9 +16,9 @@ public class RepositorioUsuario
                 .FirstOrDefault(u => u.Correo == usuario && u.Contarsena == contrasena);
     }
 
-    public void RegistrarUsuario(Usuario user, Persona persona)
+    public int RegistrarUsuario(Usuario user, Persona persona)
     {
             context.Usuarios.Add(user);
-            context.SaveChanges();
+            return context.SaveChanges();
     }
 }

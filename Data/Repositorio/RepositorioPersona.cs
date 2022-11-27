@@ -8,8 +8,8 @@ public class RepositorioPersona
         this.context = context;
     }
 
-    public void RegistrarPersona(Persona persona){
+    public int RegistrarPersona(Persona persona){
         context.Personas.Add(persona);
-        context.SaveChanges();
+        return context.SaveChanges();
     }
 }

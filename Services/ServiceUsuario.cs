@@ -38,12 +38,16 @@ public class ServiceUsuario
             return null;
     }
 
+    
+
     public bool ValidarUsuario(Usuario user)
     {
-        if (user.Correo != null && user.Contarsena != null)
+        if (user.Correo != null && user.Contarsena != null){
             return true;
-        else
+        }
+        else{
             return false;
+        }
     }
 
 }
