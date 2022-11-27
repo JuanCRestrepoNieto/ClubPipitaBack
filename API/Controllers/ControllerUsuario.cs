@@ -17,7 +17,7 @@ public class ControllerUsuario : ControllerBase
     
     [HttpPost ("iniciarSesion")]
     public IActionResult obtenerUsuario(ViewModelLogin usuario){
-        Usuario user = serviceUsuario.ValidarUsuario(usuario.Correo, usuario.Contarsena); 
+        Usuario user = serviceUsuario.ValidarLogin(usuario.Correo, usuario.Contarsena); 
         if(user != null)
         {
             ViewModelUsuario vistaModeloUsuario = new ViewModelUsuario();
@@ -28,6 +28,9 @@ public class ControllerUsuario : ControllerBase
 
     [HttpPost ("registrarse")]
     public IActionResult registrarUsuario(ViewModelRegistrarse registro){
+        if(registro != null){
+            
+        }
         return Ok();
     }
 }

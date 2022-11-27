@@ -15,4 +15,10 @@ public class RepositorioUsuario
         return context.Usuarios
                 .FirstOrDefault(u => u.Correo == usuario && u.Contarsena == contrasena);
     }
+
+    public void RegistrarUsuario(Usuario user, Persona persona)
+    {
+            context.Usuarios.Add(user);
+            context.SaveChanges();
+    }
 }
