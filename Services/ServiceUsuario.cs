@@ -23,12 +23,7 @@ public class ServiceUsuario
 
             if (user != null)
             {
-                return new Usuario
-                {
-                    Correo = user.Correo,
-                    Contarsena = user.Contarsena,
-                    CodRolNavigation = user.CodRolNavigation,
-                };
+                return user;
             }
             else
                 return null;

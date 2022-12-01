@@ -12,6 +12,7 @@ public class RepositorioUsuario
 
     public Usuario IniciarSesion(string usuario, string contrasena)
     {
+        
         return context.Usuarios
                 .FirstOrDefault(u => u.Correo == usuario && u.Contarsena == contrasena);
     }

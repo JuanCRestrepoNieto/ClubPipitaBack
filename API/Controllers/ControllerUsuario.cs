@@ -10,18 +10,21 @@ namespace API.Controllers;
 public class ControllerUsuario : ControllerBase
 {
     protected readonly ServiceUsuario serviceUsuario;
-    public ControllerUsuario(ServiceUsuario servicioUsuario)
+    protected readonly ServiceRol serviceRol;
+    public ControllerUsuario(ServiceUsuario servicioUsuario, ServiceRol serviceRol)
     {
         this.serviceUsuario = servicioUsuario;
+        this.serviceRol = serviceRol;
     }
-    
+
     [HttpPost ("iniciarSesion")]
     public IActionResult obtenerUsuario(ViewModelLogin usuario){
         Usuario user = serviceUsuario.ValidarLogin(usuario.Correo, usuario.Contarsena); 
         if(user != null)
         {
+            string rol = serviceRol.ObtenerRol(user.CodRol);
             ViewModelUsuario vistaModeloUsuario = new ViewModelUsuario();
-            return Ok(vistaModeloUsuario.ConvertirDesdeEntidad(user));
+            return Ok(vistaModeloUsuario.ConvertirDesdeEntidad(user, rol));
         }else
             return NotFound("Verifique los datos ingresados");
     }
