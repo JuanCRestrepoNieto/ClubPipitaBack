@@ -28,10 +28,13 @@ builder.Services.AddDbContext<CLUBPIPITAContext>(options =>{
 
 builder.Services.AddScoped<RepositorioUsuario>();
 builder.Services.AddScoped<RepositorioPersona>();
+builder.Services.AddScoped<RepositorioEquipo>();
 builder.Services.AddScoped<RepositorioRol>();
+
 builder.Services.AddScoped<ServiceUsuario>();
 builder.Services.AddScoped<ServicePersona>();
 builder.Services.AddScoped<ServiceRol>();
+builder.Services.AddScoped<ServicioEquipo>();
 
 
 var app = builder.Build();
