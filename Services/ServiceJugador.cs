@@ -13,7 +13,8 @@ public class ServiceJugador
 
     public bool ActualizarJugador(Jugador jugador){
         if(jugador != null){
-            int actualizacion = repositorioJugador.Actualizar(jugador);
+            repositorioJugador.Actualizar(jugador);
+            int actualizacion = repositorioJugador.ConfirmarCambios();
             if(actualizacion>0)
                 return true;
             else
@@ -27,7 +28,8 @@ public class ServiceJugador
     {
         if(jugador != null)
         {
-            int actualizacion = repositorioJugador.Agregar(jugador);
+            repositorioJugador.Agregar(jugador);
+            int actualizacion = repositorioJugador.ConfirmarCambios();
             if(actualizacion>0)
                 return true;
             else

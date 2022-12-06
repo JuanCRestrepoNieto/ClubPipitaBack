@@ -8,14 +8,17 @@ public class RepositorioJugador
         this.context = context;
     }
 
-    public int Actualizar(Jugador jugador){
+    public void Actualizar(Jugador jugador){
         context.Jugadors.Update(jugador);
-        return context.SaveChanges();
     }
 
-    public int Agregar(Jugador jugador)
+    public void Agregar(Jugador jugador)
     {
         context.Jugadors.Add(jugador);
+    }
+
+    public int ConfirmarCambios()
+    {
         return context.SaveChanges();
     }
 }
