@@ -23,4 +23,18 @@ public class ServiceJugador
         }
     }
 
+    public bool AgregarJugador(Jugador jugador)
+    {
+        if(jugador != null)
+        {
+            int actualizacion = repositorioJugador.Agregar(jugador);
+            if(actualizacion>0)
+                return true;
+            else
+                return false;
+        }else{
+            return false;
+        }
+    }
+
 }

@@ -12,4 +12,10 @@ public class RepositorioJugador
         context.Jugadors.Update(jugador);
         return context.SaveChanges();
     }
+
+    public int Agregar(Jugador jugador)
+    {
+        context.Jugadors.Add(jugador);
+        return context.SaveChanges();
+    }
 }

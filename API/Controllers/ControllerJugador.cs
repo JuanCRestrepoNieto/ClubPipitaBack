@@ -32,6 +32,15 @@ public class ControllerJugador : ControllerBase
     [HttpPost("agregarjugador")]
     public IActionResult AgregarJugador(Jugador jugador)
     {
-        
+        if(jugador != null)
+        {
+            bool actualizo = servicioJugador.AgregarJugador(jugador);
+            if(actualizo)
+                return Ok();
+            else
+                return BadRequest("Error al actualizar el jugador, intenta más tarde");
+        }
+        else
+            return BadRequest("Corrobora los datos ingresados");
     }
 }
