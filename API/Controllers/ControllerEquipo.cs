@@ -18,7 +18,6 @@ public class ControllerEquipo : ControllerBase
     [HttpGet("obtenerEquipo{nombreEquipo}")]
     public IActionResult obtenerEquipo(string nombreEquipo)
     {
-
         if(nombreEquipo != null)
         {
             ViewModelEquipo vistaEquipo;
@@ -32,4 +31,6 @@ public class ControllerEquipo : ControllerBase
         }else
             return BadRequest();
     } 
+
+    
 }

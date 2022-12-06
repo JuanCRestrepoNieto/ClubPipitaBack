@@ -15,7 +15,7 @@ public class ServicioEquipo
     {
         if (nombre != null)
         {
-            Equipo equipo = repositorioEquipo.ObtenerEquipoJugadores(nombre);
+            Equipo equipo = repositorioEquipo.Obtener(nombre);
 
             if (equipo != null)
             {

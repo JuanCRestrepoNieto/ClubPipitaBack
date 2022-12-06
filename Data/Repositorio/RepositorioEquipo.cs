@@ -8,7 +8,7 @@ public class RepositorioEquipo
         this.context = context;
     }
 
-    public Equipo ObtenerEquipoJugadores(string nombreEquipo)
+    public Equipo Obtener(string nombreEquipo)
     {
         return context.Equipos.FirstOrDefault(e => e.Nombre == nombreEquipo);
     }

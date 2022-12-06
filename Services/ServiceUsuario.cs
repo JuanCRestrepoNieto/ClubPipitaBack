@@ -19,7 +19,7 @@ public class ServiceUsuario
     {
         if (usuario != null && contrasena != null)
         {
-            Usuario user = repositorioUsuario.IniciarSesion(usuario, contrasena);
+            Usuario user = repositorioUsuario.Obtener(usuario, contrasena);
 
             if (user != null)
             {

@@ -10,14 +10,14 @@ public class RepositorioUsuario
         this.context = context;
     }
 
-    public Usuario IniciarSesion(string usuario, string contrasena)
+    public Usuario Obtener(string usuario, string contrasena)
     {
         
         return context.Usuarios
                 .FirstOrDefault(u => u.Correo == usuario && u.Contarsena == contrasena);
     }
 
-    public int RegistrarUsuario(Usuario user, Persona persona)
+    public int Registrar(Usuario user, Persona persona)
     {
             context.Usuarios.Add(user);
             return context.SaveChanges();
