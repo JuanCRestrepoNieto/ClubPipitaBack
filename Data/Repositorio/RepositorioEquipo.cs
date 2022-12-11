@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace Data.Repositorio;
 
 public class RepositorioEquipo
@@ -10,7 +12,7 @@ public class RepositorioEquipo
 
     public Equipo Obtener(string nombreEquipo)
     {
-        return context.Equipos.FirstOrDefault(e => e.Nombre == nombreEquipo);
+        return context.Equipos.Include(j => j.Jugadors).FirstOrDefault(e => e.Nombre == nombreEquipo);
     }
 
 }
