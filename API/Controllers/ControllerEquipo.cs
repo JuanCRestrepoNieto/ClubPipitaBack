@@ -20,11 +20,11 @@ public class ControllerEquipo : ControllerBase
     {
         if(nombreEquipo != null)
         {
-            ViewModelEquipo vistaEquipo;
+            
             Equipo equipo = servicioEquipo.ObtenerEquipo(nombreEquipo);
             if(equipo != null)
             {
-                vistaEquipo = new ViewModelEquipo();
+                ViewModelEquipo vistaEquipo = new ViewModelEquipo();
                 return Ok(vistaEquipo.RetornarVistaEquipo(equipo)); 
             }else 
                 return NotFound();

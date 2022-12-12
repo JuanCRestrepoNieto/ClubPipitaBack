@@ -36,6 +36,8 @@ builder.Services.AddScoped<ServicePersona>();
 builder.Services.AddScoped<ServiceRol>();
 builder.Services.AddScoped<ServicioEquipo>();
 
+builder.Services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles);
 
 var app = builder.Build();
 

@@ -16,11 +16,11 @@ public class ViewModelEquipo
     {
         if(equipo != null)
         {
-            this.Codigo = equipo.Codigo;
-            this.Idpatrocinadors = equipo.Idpatrocinadors;
-            this.Jugadors = equipo.Jugadors;
-            this.Nombre = equipo.Nombre;
-            this.Partidojugados = equipo.Partidojugados;
+            Codigo = equipo.Codigo;
+            Idpatrocinadors = equipo.Idpatrocinadors;
+            Jugadors = equipo.Jugadors;
+            Nombre = equipo.Nombre;
+            Partidojugados = equipo.Partidojugados;
             return this;
         }else{
             return null;
