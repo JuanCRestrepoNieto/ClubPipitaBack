@@ -12,9 +12,9 @@ public class RepositorioJugador
         context.Jugadors.Update(jugador);
     }
 
-    public void Agregar(Jugador jugador)
+    public Jugador Agregar(Jugador jugador)
     {
-        context.Jugadors.Add(jugador);
+        return context.Jugadors.Add(jugador).Entity;
     }
 
     public int ConfirmarCambios()

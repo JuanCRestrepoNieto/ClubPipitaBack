@@ -44,4 +44,24 @@ public class ServicePersona
         }else
             return false;
     }
+
+    public Persona AgregarPersona(ViewModelJugador jugador)
+    {
+        if(ValidarPersona(jugador))
+        {
+            Persona personaAdd = new Persona {
+                Apellido = jugador.Apellido,
+                Nombre = jugador.Nombre,
+                Id = jugador.Id,
+                Telefono = jugador.Telefono
+            };
+            Persona personaAgregada = repositorioPersona.Agregar(personaAdd);
+            int cambios = repositorioPersona.ConfirmarCambios();
+            if(cambios>0)
+                return personaAgregada;
+            else
+                return null;
+        }else
+            return null;
+    }
 }

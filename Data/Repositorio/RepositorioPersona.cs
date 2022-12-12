@@ -15,4 +15,8 @@ public class RepositorioPersona
     {
         return context.SaveChanges();
     }
+    public Persona Agregar(Persona persoan)
+    {
+        return context.Personas.Add(persoan).Entity;
+    }
 }

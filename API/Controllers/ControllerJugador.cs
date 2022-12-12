@@ -30,20 +30,28 @@ public class ControllerJugador : ControllerBase
                     return Ok("Se actualizó con éxito los datos");
                 else
                     return BadRequest("Error al actualizar el jugador");
-            }else
+            }
+            else
                 return BadRequest("Error al actualizar el jugador, intenta más tarde");
-        }else
+        }
+        else
             return BadRequest("Corrobora los datos ingresados");
     }
 
     [HttpPost("agregarjugador")]
-    public IActionResult AgregarJugador(Jugador jugador)
+    public IActionResult AgregarJugador(ViewModelJugador jugador)
     {
         if (jugador != null)
         {
-            bool actualizo = servicioJugador.AgregarJugador(jugador);
-            if (actualizo)
-                return Ok();
+            Persona personaAgregada = servicePersona.AgregarPersona(jugador);
+            if (personaAgregada != null)
+            {
+                Jugador jugadorAgregado = servicioJugador.AgregarJugador(jugador);
+                if (jugadorAgregado != null)
+                    return Ok(jugador);
+                else
+                    return BadRequest("Verifica los datos ingresados");
+            }
             else
                 return BadRequest("Error al actualizar el jugador, intenta más tarde");
         }

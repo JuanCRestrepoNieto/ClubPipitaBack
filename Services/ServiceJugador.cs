@@ -32,19 +32,25 @@ public class ServiceJugador
         }
     }
 
-    public bool AgregarJugador(Jugador jugador)
+    public Jugador AgregarJugador(ViewModelJugador jugador)
     {
         if(jugador != null)
         {
-            repositorioJugador.Agregar(jugador);
-            int actualizacion = repositorioJugador.ConfirmarCambios();
-            if(actualizacion>0)
-                return true;
+            Jugador jugadorAdd = new Jugador {
+                Codequipo = jugador.CodEquipo,
+                Id = jugador.Id,
+                Numdorsal = jugador.Dorsal
+            };
+            Jugador jugadorAgregado = repositorioJugador.Agregar(jugadorAdd);
+            int cambios = repositorioJugador.ConfirmarCambios();
+            if(cambios>0)
+                return jugadorAgregado;
             else
-                return false;
+                return null;
         }else{
-            return false;
+            return null;
         }
     }
+
 
 }
