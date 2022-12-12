@@ -30,11 +30,13 @@ builder.Services.AddScoped<RepositorioUsuario>();
 builder.Services.AddScoped<RepositorioPersona>();
 builder.Services.AddScoped<RepositorioEquipo>();
 builder.Services.AddScoped<RepositorioRol>();
+builder.Services.AddScoped<RepositorioJugador>();
 
 builder.Services.AddScoped<ServiceUsuario>();
 builder.Services.AddScoped<ServicePersona>();
 builder.Services.AddScoped<ServiceRol>();
 builder.Services.AddScoped<ServicioEquipo>();
+builder.Services.AddScoped<ServiceJugador>();
 
 builder.Services.AddControllers().AddJsonOptions(x =>
                 x.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles);

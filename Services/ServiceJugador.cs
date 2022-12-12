@@ -1,5 +1,6 @@
 using Data;
 using Data.Repositorio;
+using Model.View;
 
 namespace Services;
 
@@ -11,9 +12,16 @@ public class ServiceJugador
         this.repositorioJugador = repositorioJugador;
     }
 
-    public bool ActualizarJugador(Jugador jugador){
+    public bool ActualizarJugador(ViewModelJugador jugador){
         if(jugador != null){
-            repositorioJugador.Actualizar(jugador);
+            Jugador jugadorNuevosDatos = new Jugador {
+                Codequipo = jugador.CodEquipo,
+                Numdorsal = jugador.Dorsal,
+                Id = jugador.Id
+            };
+            
+            repositorioJugador.Actualizar(jugadorNuevosDatos);
+
             int actualizacion = repositorioJugador.ConfirmarCambios();
             if(actualizacion>0)
                 return true;
