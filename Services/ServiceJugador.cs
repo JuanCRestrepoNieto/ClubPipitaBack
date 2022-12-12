@@ -52,5 +52,26 @@ public class ServiceJugador
         }
     }
 
+    public int Eliminarjugador(string id)
+    {
+        if(id != null)
+        {
+            Jugador jugador = new Jugador {
+                Id = id
+            };
+            Jugador jugadorEliminado = repositorioJugador.Eliminar(jugador);
+            if(jugadorEliminado!=null)
+            {
+                int sw = repositorioJugador.ConfirmarCambios();
+                if(sw>0)
+                    return sw;
+                else
+                    return 0;
+            }
+            else
+                return -1;
 
+        }else
+            return -2;
+    }
 }

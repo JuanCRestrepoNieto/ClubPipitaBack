@@ -17,6 +17,11 @@ public class RepositorioJugador
         return context.Jugadors.Add(jugador).Entity;
     }
 
+    public Jugador Eliminar(Jugador jugador)
+    {
+        return context.Jugadors.Remove(jugador).Entity;
+    }
+
     public int ConfirmarCambios()
     {
         return context.SaveChanges();

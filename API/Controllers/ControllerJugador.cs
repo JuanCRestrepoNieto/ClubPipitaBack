@@ -58,4 +58,27 @@ public class ControllerJugador : ControllerBase
         else
             return BadRequest("Corrobora los datos ingresados");
     }
+
+    [HttpDelete("eliminarJugador{id}")]
+    public IActionResult EliminarJugador(string id)
+    {
+        if(id != null)
+        {
+            int swEliminado = servicioJugador.Eliminarjugador(id);
+            switch (swEliminado)
+            {
+                case 0:
+                    return BadRequest("Hubo un error, reintenta");
+                case 1:
+                    return Ok("Jugador eliminado exitosamente del equipo");
+                case -1:
+                    return NotFound("No se encontró al jugador");
+                case -2:
+                    return BadRequest("Error");
+                default:
+                    return BadRequest("Error");
+            }
+        }else
+            return BadRequest("Verifica al jugador");
+    }
 }
